@@ -143,7 +143,7 @@ class OpenstackServiceManager(object):
             headers = {"User-Agent": "python-neutronclient", "Accept": "application/json",
                        "X-Auth-Token": self.auth_token}
             # print headers
-            r = requests.get('http://controller:9696/v2.0/agents.json', headers=headers)
+            r = requests.get(self.neutron_endpoint+'/agents.json', headers=headers)
             return json.loads(r.content)
         except Exception as e:
             raise e
