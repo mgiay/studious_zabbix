@@ -1,3 +1,5 @@
+"""Library for 
+"""
 import os
 import sys
 import json
@@ -34,6 +36,7 @@ def remove_duplicate(list_array):
 
 
 def prepare_session(func):
+	"""wrapp"""
     def wrapper(self, **kwargs):
         config_parser = ConfigParser.RawConfigParser()
         config_parser.read(os.path.dirname(os.path.realpath(__file__)) + "/.env")
@@ -83,9 +86,7 @@ class OpenstackIdentityManager(object):
 
     @property
     def get_token(self):
-        """
-        :return dict {'url': _, 'password': _, 'auth_url'}
-        """
+        """get user info"""
         try:
             credentials = self.get_credentials()
             keystone = ksclient.Client(**credentials)
@@ -107,7 +108,9 @@ class OpenstackIdentityManager(object):
 
 
 class OpenstackServiceManager(object):
-    """docstring for DiscoveryServiceManager"""
+    """reposibility for:
+		- get the list of nova , cinder, neutron services.
+	"""
 
     def __init__(self, **kwargs):
         self.username = kwargs['username']
