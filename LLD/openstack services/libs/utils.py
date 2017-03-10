@@ -156,12 +156,3 @@ class OpenstackServiceManager(object):
             return cinder.services.list()
         except Exception as e:
             raise e
-
-    # def get_cinder_services(self, username, password, auth_url):
-    #     try:
-    #         cinder = cinclient.Client(self.cinder_version, username, password, None, auth_url)
-    #         cinder.client.auth_token = self.auth_token
-    #         cinder.client.management_url = self.cinder_endpoint
-    #         return cinder.services.list()
-    #     except Exception as e:
-    #         raise e
