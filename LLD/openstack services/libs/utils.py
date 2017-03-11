@@ -1,5 +1,3 @@
-"""Library for 
-"""
 import os
 import sys
 import json
@@ -36,7 +34,6 @@ def remove_duplicate(list_array):
 
 
 def prepare_session(func):
-	"""wrapp"""
     def wrapper(self, **kwargs):
         config_parser = ConfigParser.RawConfigParser()
         config_parser.read(os.path.dirname(os.path.realpath(__file__)) + "/.env")
@@ -86,7 +83,9 @@ class OpenstackIdentityManager(object):
 
     @property
     def get_token(self):
-        """get user info"""
+        """
+        :return dict {'url': _, 'password': _, 'auth_url'}
+        """
         try:
             credentials = self.get_credentials()
             keystone = ksclient.Client(**credentials)
@@ -108,9 +107,7 @@ class OpenstackIdentityManager(object):
 
 
 class OpenstackServiceManager(object):
-    """reposibility for:
-		- get the list of nova , cinder, neutron services.
-	"""
+    """docstring for DiscoveryServiceManager"""
 
     def __init__(self, **kwargs):
         self.username = kwargs['username']
@@ -146,7 +143,7 @@ class OpenstackServiceManager(object):
             headers = {"User-Agent": "python-neutronclient", "Accept": "application/json",
                        "X-Auth-Token": self.auth_token}
             # print headers
-            r = requests.get(self.neutron_endpoint+'/agents.json', headers=headers)
+            r = requests.get(self.neutron_endpoint+'/v2.0/agents.json', headers=headers)
             return json.loads(r.content)
         except Exception as e:
             raise e
@@ -159,3 +156,12 @@ class OpenstackServiceManager(object):
             return cinder.services.list()
         except Exception as e:
             raise e
+
+    # def get_cinder_services(self, username, password, auth_url):
+    #     try:
+    #         cinder = cinclient.Client(self.cinder_version, username, password, None, auth_url)
+    #         cinder.client.auth_token = self.auth_token
+    #         cinder.client.management_url = self.cinder_endpoint
+    #         return cinder.services.list()
+    #     except Exception as e:
+    #         raise e
