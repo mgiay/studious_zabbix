@@ -64,3 +64,6 @@ Example check services up/down
 // return 1 (up), 0 (down)
 1
 ```
+Import Template
+================
+import file userparameter_openstack_services.conf to zabbix server.
