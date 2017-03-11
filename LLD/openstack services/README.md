@@ -1,24 +1,24 @@
 Requirement
 ============
-..keystoneclient
-..novaclient
-..cinderclient
-..neutronclient
-..requests
+* keystoneclient
+* novaclient
+* cinderclient
+* neutronclient
+* requests
 
 Openstack Model (KILO, MITAKA)
 ================
 Controller nodes (eg: controller01, controller02, ...):
-.. nova services: nova-scheduler, nova-conductor, nova-cert, nova-consoleauth
-.. neutron services: neutron-server
-.. cinder services: cinder-scheduler
+* nova services: nova-scheduler, nova-conductor, nova-cert, nova-consoleauth
+* neutron services: neutron-server
+* cinder services: cinder-scheduler
 Compute nodes:
-.. nova services: nova-compute
-.. neutron services: neutron-l3-agent, neutron-metata-agent, neutron-openvswitch-agent
+* nova services: nova-compute
+* neutron services: neutron-l3-agent, neutron-metata-agent, neutron-openvswitch-agent
 Network Gateway nodes (eg: network-gw-01, network-gw-02,...):
-.. neutron services: neutron-l3-agent, neutron-metata-agent, neutron-openvswitch-agent, neutron-dhcp-agent,...
+* neutron services: neutron-l3-agent, neutron-metata-agent, neutron-openvswitch-agent, neutron-dhcp-agent,...
 Block Storage nodes:
-..cinder services: cinder-volume, cinder-backup
+* cinder services: cinder-volume, cinder-backup
 Install
 ========
 
