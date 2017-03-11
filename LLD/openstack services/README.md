@@ -1,10 +1,10 @@
 Requirement
 ============
-.. keystoneclient
-.. novaclient
-.. cinderclient
-.. neutronclient
-.. requests
+..keystoneclient
+..novaclient
+..cinderclient
+..neutronclient
+..requests
 
 Openstack Model (KILO, MITAKA)
 ================
